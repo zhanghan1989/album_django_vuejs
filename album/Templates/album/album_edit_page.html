@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>album_edie_page</title>
+</head>
+<body>
+  <!-- <form action="{% url 'album:album_edit_action' %}", method="post">
+    {% csrf_token %}
+    {% if album %}
+      <input type="hidden" name="album_id", value="{{album.id}}">
+      <label>标题
+        <input type="text" name="title", value="{{album.title}}">
+      </label>
+      <br>
+      <label>内容
+        <input type="text" name="content", value="{{album.content}}">
+      </label>
+      <br>
+    {% else %}
+      <input type="hidden" name="album_id", value="0">
+      <label>标题
+        <input type="text" name="title">
+      </label>
+      <br>
+      <label>内容
+        <input type="text" name="content">
+      </label>
+      <br>
+    {% endif %}
+    <input type="submit" value="提交">
+  </form> -->
+  <form action="{% url 'album:album_edit_action' %}", method="post">
+    {% csrf_token %}
+    <input type="hidden" name="album_id", value="{{album.id | default:'0'}}">
+      <label>标题
+        <input type="text" name="title", value="{{album.title}}">
+      </label>
+      <br>
+      <label>内容
+        <input type="text" name="content", value="{{album.content}}">
+      </label>
+      <br>
+    <input type="submit" value="提交">
+  </form>
+</body>
+</html>
